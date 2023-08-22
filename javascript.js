@@ -1,3 +1,35 @@
+let cero = document.querySelector('#cero');
+let uno = document.querySelector('#uno');
+let dos = document.querySelector('#dos');
+let tres = document.querySelector('#tres');
+let cuatro = document.querySelector('#cuatro');
+let cinco = document.querySelector('#cinco');
+let seis = document.querySelector('#seis');
+let siete = document.querySelector('#siete');
+let ocho = document.querySelector('#ocho');
+let nueve = document.querySelector('#nueve');
+let display = document.querySelector('.numberDisplay');
+let clear = document.querySelector('#c');
+let sumar = document.querySelector('#sumar');
+let restar = document.querySelector('#resta');
+let multiplicar = document.querySelector('#multipli');
+let dividir = document.querySelector('#dividir');
+let punto = document.querySelector('#punto');
+let funcion = document.querySelector('.funcion');
+let calButtons = document.querySelector('.boton');
+let equivale = document.querySelector('#equivale');
+
+
+let arrA = [];
+let arrB = [];
+let arrC = [];
+
+
+/*calButtons.addEventListener ('click', () =>{
+    display.innerHTML = arrA ;
+})*/
+
+
 function add(a, b) {
     let sumar = (a + b);
     return sumar;
@@ -40,3 +72,129 @@ function operate(){
         }
     }
 }
+cero.addEventListener('click', () =>{
+    arrB.push(0);
+    let ARaB = arrB.slice(0, 10);
+    let AArrB = ARaB.join("");
+    display.innerHTML = AArrB;
+})
+punto.addEventListener('click', () =>{
+    arrB.push('.');
+    let ARaB = arrB.slice(0, 10);
+    let AArrB = ARaB.join("");
+    display.innerHTML = AArrB;
+})
+uno.addEventListener('click', () =>{
+    arrB.push(1);
+    let ARaB = arrB.slice(0, 10);
+    let AArrB = ARaB.join("");
+    display.innerHTML = AArrB;
+})
+dos.addEventListener('click', () =>{
+    arrB.push(2);
+    let ARaB = arrB.slice(0, 10);
+    let AArrB = ARaB.join("");
+    display.innerHTML = AArrB;
+})
+tres.addEventListener('click', () =>{
+    arrB.push(3);
+    let ARaB = arrB.slice(0, 10);
+    let AArrB = ARaB.join("");
+    display.innerHTML = AArrB;
+})
+cuatro.addEventListener('click', () =>{
+    arrB.push(4);
+    let ARaB = arrB.slice(0, 10);
+    let AArrB = ARaB.join("");
+    display.innerHTML = AArrB;
+})
+cinco.addEventListener('click', () =>{
+    arrB.push(5);
+    let ARaB = arrB.slice(0, 10);
+    let AArrB = ARaB.join("");
+    display.innerHTML = AArrB;
+})
+seis.addEventListener('click', () =>{
+    arrB.push(6);
+    let ARaB = arrB.slice(0, 10);
+    let AArrB = ARaB.join("");
+    display.innerHTML = AArrB;
+})
+siete.addEventListener('click', () =>{
+    arrB.push(7);
+    let ARaB = arrB.slice(0, 10);
+    let AArrB = ARaB.join("");
+    display.innerHTML = AArrB;
+})
+ocho.addEventListener('click', () =>{
+    arrB.push(8);
+    let ARaB = arrB.slice(0, 10);
+    let AArrB = ARaB.join("");
+    display.innerHTML = AArrB;
+})
+nueve.addEventListener('click', () =>{
+    arrB.push(9);
+    let ARaB = arrB.slice(0, 10);
+    let AArrB = ARaB.join("");
+    display.innerHTML = AArrB;
+})
+clear.addEventListener('click', ()=>{
+    display.innerHTML = null;
+    funcion.innerHTML = null;
+    arrA.length = 0;
+    arrB.length = 0;
+    arrC.length = 0;
+})
+sumar.addEventListener('click', ()=>{
+    funcion.innerHTML = "+" ;
+    arrA = arrB;
+    arrA.length = 10;
+    let AArrA = arrA.join('');
+    arrC.push(AArrA);{
+        arrB.length = 0;
+    }
+})
+restar.addEventListener('click', ()=>{
+    funcion.innerHTML = "-" ;
+    arrA = arrB;
+    arrA.length = 10;
+    let AArrA = arrA.join('');
+    arrC.push(AArrA);{
+        arrB.length = 0;
+    }
+})
+multiplicar.addEventListener('click', ()=>{
+    funcion.innerHTML = "x" ;
+    arrA = arrB;
+    arrA.length = 10;
+    let AArrA = arrA.join('');
+    arrC.push(AArrA);{
+        arrB.length = 0;
+    }
+})
+dividir.addEventListener('click', ()=>{
+    funcion.innerHTML = "÷" ;
+    arrA = arrB;
+    arrA.length = 10;
+    let AArrA = arrA.join('');
+    arrC.push(AArrA);{
+        arrB.length = 0;
+    }
+})
+
+equivale.addEventListener('click', () => {
+    let firstChoice = arrC[0];
+    let a = Number(firstChoice);
+    let secondChoice = arrB.slice(0, 10);
+    let b = Number(secondChoice.join('')); {
+        if (funcion.innerHTML === "+"){
+        display.innerHTML = add(a, b)}
+        else if (funcion.innerHTML === "-"){
+        display.innerHTML = subtract(a, b)}
+        else if (funcion.innerHTML === "x"){
+        display.innerHTML = multiply(a, b)}
+        else if (funcion.innerHTML === "÷"){
+        display.innerHTML = divide(a, b)}
+    }
+        funcion.innerHTML = '=';
+    })
