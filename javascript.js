@@ -25,6 +25,7 @@ let arrA = [];
 let arrB = [];
 let arrC = [];
 
+let arrF = [];
 
 /*calButtons.addEventListener ('click', () =>{
     display.innerHTML = arrA ;
@@ -51,25 +52,28 @@ function divide(a, b) {
     return dividir;
 }
 
-function operate(){
-    let choiceA = prompt('pick a number');
-    let a = Number(choiceA);
-    let choiceB = prompt('pick a second number');
-    let b = Number(choiceB);
-    let op = prompt('add, subtract, multiply or divide');
-    let oper = op.toLowerCase();
-    {if (oper === 'add'){
-        alert(add(a, b));}
-        else if (oper === 'subtract') {
-        alert(subtract(a, b));
-        }
-        else if (oper === 'multiply') {
-        alert(multiply(a, b));}
-        else if (oper === 'divide') {
-        alert(divide(a, b));
-        }
-        else if (oper) {
-            alert('invalid entry');
+function operate(arrC, arrB) {
+    let oper = arrF[0];
+    {if (arrB.length !== 0 && oper === '+'){
+        let a = Number(arrC[0]);
+        let b = Number(arrB.join(""));
+        arrC[0] = add(a, b);
+        return add(a, b);}
+        else if (arrB.length !== 0 && oper === '-') {
+        let a = Number(arrC[0]);
+        let b = Number(arrB.join(""));
+        arrC[0] = subtract(a, b);
+        return subtract(a, b);}
+        else if (arrB.length !== 0 && oper === 'x') {
+        let a = Number(arrC[0]);
+        let b = Number(arrB.join(""));
+        arrC[0] = multiply(a, b);
+        return multiply(a, b);}
+        else if (arrB.length !== 0 && oper === '/') {
+        let a = Number(arrC[0]);
+        let b = Number(arrB.join(""));
+        arrC[0] = divide(a, b);
+        return divide(a, b)
         }
     }
 }
@@ -152,87 +156,108 @@ clear.addEventListener('click', ()=>{
 lastValue.addEventListener('click', () => {
     arrB.length = 0;
     display.innerHTML = null;
+    arrF.length = 0;
 })
 
 sumar.addEventListener('click', ()=>{
-    funcion.innerHTML = "+";
+    funcion.innerHTML = '+';
     if (arrC.length === 0) {
+    arrF[0] = '+';
     arrA = arrB;
     arrA.length = 10;
     let AArrA = arrA.join('');
-    arrC.push(AArrA);{
+    arrC[0] = AArrA;{
         arrB.length = 0;
     }}
     else if (arrC.length !== 0 && arrB.length !== 0){
-        let firstChoice = arrC[0];
-        let a = Number(firstChoice);
-        let secondChoice = arrB.slice(0, 10);
-        let b = Number(secondChoice.join('')); {
-            display.innerHTML = add(a, b);
-            arrC[0] = Number(add(a, b));}
+        if(arrF[0] !== '+') {
+        {operate(arrC, arrB); {
+        arrF[0] = '+'
         arrB.length = 0;}
+        display.innerHTML = arrC[0];
+        funcion.innerHTML = '+';}}
+        else if (arrF[0] === '+')
+        operate(arrC, arrB); {
+        arrB.length = 0;}
+        display.innerHTML = arrC[0];
+        funcion.innerHTML = '+';}
     })
 
 restar.addEventListener('click', ()=>{
     funcion.innerHTML = "-";
     if (arrC.length === 0) {
+        arrF[0] = '-';
         arrA = arrB;
         arrA.length = 10;
         let AArrA = arrA.join('');
         arrC.push(AArrA);{
             arrB.length = 0;
         }}
-        else if (arrC.length !== 0 && arrB.length !== 0) {
-            let firstChoice = arrC[0];
-            let a = Number(firstChoice);
-            let secondChoice = arrB.slice(0, 10);
-            let b = Number(secondChoice.join(''));{
-                display.innerHTML = subtract(a, b);
-                arrC[0] = Number(subtract(a, b));}
-                arrB.length = 0;
-        }
-    })
+        else if (arrC.length !== 0 && arrB.length !== 0){
+            if(arrF[0] !== '-') {
+                {operate(arrC, arrB); {
+                arrF[0] = '-'
+                arrB.length = 0;}
+                display.innerHTML = arrC[0];
+                funcion.innerHTML = '-';}}
+                else if (arrF[0] === '-')
+                operate(arrC, arrB); {
+                arrB.length = 0;}
+                display.innerHTML = arrC[0];
+                funcion.innerHTML = '-';}
+        })
+   
 multiplicar.addEventListener('click', ()=>{
     funcion.innerHTML = "x";
     if (arrC.length === 0) {
+        arrF[0] = 'x';
         arrA = arrB;
         arrA.length = 10;
         let AArrA = arrA.join('');
         arrC.push(AArrA);{
             arrB.length = 0;
         }}
-        else if (arrC.length !== 0 && arrB.length !== 0) {
-            let firstChoice = arrC[0];
-            let a = Number(firstChoice);
-            let secondChoice = arrB.slice(0, 10);
-            let b = Number(secondChoice.join(''));{
-                display.innerHTML = multiply(a, b);
-                arrC[0] = Number(multiply(a, b));}
-                arrB.length = 0;
-        }
-    })
+        else if (arrC.length !== 0 && arrB.length !== 0){
+            if(arrF[0] !== 'x') {
+                {operate(arrC, arrB); {
+                arrF[0] = 'x'
+                arrB.length = 0;}
+                display.innerHTML = arrC[0];
+                funcion.innerHTML = 'x';}}
+                else if (arrF[0] === 'x')
+                operate(arrC, arrB); {
+                arrB.length = 0;}
+                display.innerHTML = arrC[0];
+                funcion.innerHTML = 'x';}
+        })
+   
 dividir.addEventListener('click', ()=>{
     funcion.innerHTML = "÷" ;
     if (arrC.length === 0) {
+        arrF[0] = '/';
         arrA = arrB;
         arrA.length = 10;
         let AArrA = arrA.join('');
         arrC.push(AArrA);{
             arrB.length = 0;
         }}
-        else if (arrC.length !== 0 && arrB.length !== 0) {
-            let firstChoice = arrC[0];
-            let a = Number(firstChoice);
-            let secondChoice = arrB.slice(0, 10);
-            let b = Number(secondChoice.join(''));{
-                display.innerHTML = divide(a, b);
-                arrC[0] = Number(divide(a, b));}
-                arrB.length = 0;
-        }
-    })
+        else if (arrC.length !== 0 && arrB.length !== 0){
+            if(arrF[0] !== '/') {
+                {operate(arrC, arrB); {
+                arrF[0] = '/'
+                arrB.length = 0;}
+                display.innerHTML = arrC[0];
+                funcion.innerHTML = '÷';}}
+                else if (arrF[0] === '/')
+                operate(arrC, arrB); {
+                arrB.length = 0;}
+                display.innerHTML = arrC[0];
+                funcion.innerHTML = '÷';}
+        })
+   
 
 equivale.addEventListener('click', () => {
-        if (funcion.innerHTML === "+" && arrC.length !== 0 && arrB.length !== 0){
+        if (funcion.innerHTML = "+" && arrC.length !== 0 && arrB.length !== 0){
             let firstChoice = arrC[0];
             let a = Number(firstChoice);
             let secondChoice = arrB.slice(0, 10);
@@ -240,8 +265,9 @@ equivale.addEventListener('click', () => {
                 display.innerHTML = add(a, b);
                 funcion.innerHTML = '=';
                 arrC[0] = Number(add(a, b));}
-            arrB.length = 0;}
-        else if (funcion.innerHTML === "-"  && arrC.length !== 0 && arrB.length !== 0){
+            arrB.length = 0;
+            arrF.length = 0;}
+        else if (funcion.innerHTML = "-" && arrC.length !== 0 && arrB.length !== 0){
             let firstChoice = arrC[0];
             let a = Number(firstChoice);
             let secondChoice = arrB.slice(0, 10);
@@ -249,8 +275,9 @@ equivale.addEventListener('click', () => {
                 {display.innerHTML = subtract(a, b);
                 funcion.innerHTML = '=';
                 arrC[0] = Number(subtract(a, b));}
-            arrB.length = 0;}
-        else if (funcion.innerHTML === "x"  && arrC.length !== 0 && arrB.length !== 0){
+            arrB.length = 0;
+            arrF.length = 0;}
+        else if (funcion.innerHTML = "x" && arrC.length !== 0 && arrB.length !== 0){
             let firstChoice = arrC[0];
             let a = Number(firstChoice);
             let secondChoice = arrB.slice(0, 10);
@@ -258,8 +285,9 @@ equivale.addEventListener('click', () => {
                 {display.innerHTML = multiply(a, b);
                 funcion.innerHTML = '=';
                 arrC[0] = Number(multiply(a, b));}
-            arrB.length = 0;}
-        else if (funcion.innerHTML === "÷"  && arrC.length !== 0 && arrB.length !== 0){
+            arrB.length = 0;
+            arrF.length = 0;}
+        else if (funcion.innerHTML = "÷" && arrC.length !== 0 && arrB.length !== 0){
             let firstChoice = arrC[0];
             let a = Number(firstChoice);
             let secondChoice = arrB.slice(0, 10);
@@ -267,6 +295,7 @@ equivale.addEventListener('click', () => {
                 {display.innerHTML = divide(a, b);
                 funcion.innerHTML = '=';
                 arrC[0] = Number(divide(a, b));}
-            arrB.length = 0;}
+            arrB.length = 0;
+            arrF.length = 0;}
         }
     })
