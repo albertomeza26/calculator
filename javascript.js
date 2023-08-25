@@ -27,11 +27,6 @@ let arrC = [];
 
 let arrF = [];
 
-/*calButtons.addEventListener ('click', () =>{
-    display.innerHTML = arrA ;
-})*/
-
-
 function add(a, b) {
     let sumar = (a + b);
     return sumar;
@@ -77,72 +72,252 @@ function operate(arrC, arrB) {
         }
     }
 }
-cero.addEventListener('click', () =>{
+cero.addEventListener('click', () => {
+    if(funcion.innerHTML !== '=' && arrB.length !== 0){
     arrB.push(0);
     let ARaB = arrB.slice(0, 10);
     let AArrB = ARaB.join("");
     display.innerHTML = AArrB;
+    disableBtn();}
+    else if (funcion.innerHTML === '=' && arrB.length !== 0){
+    arrA.length = 0;
+    arrB.length = 0;
+    arrC.length = 0;
+    arrF.length = 0;
+    funcion.innerHTML = null;
+    display.innerHTML = null;{
+    arrB.push(0);
+    let ARaB = arrB.slice(0, 10);
+    let AArrB = ARaB.join("");
+    display.innerHTML = AArrB;
+    disableBtn();
+    }
+    }
+    else if (funcion.innerHTML === '='){
+    arrA.length = 0;
+    arrB.length = 0;
+    arrC.length = 0;
+    arrF.length = 0;
+    funcion.innerHTML = null;
+    display.innerHTML = '0';
+    }
 })
 
-punto.addEventListener('click', () =>{
+punto.addEventListener('click', () => {
+    if(funcion.innerHTML !== '='){
     arrB.push('.');
     let ARaB = arrB.slice(0, 10);
     let AArrB = ARaB.join("");
     display.innerHTML = AArrB;
+    disableBtn();}
+    else if (funcion.innerHTML === '=' ){
+    arrA.length = 0;
+    arrB.length = 0;
+    arrC.length = 0;
+    arrF.length = 0;
+    funcion.innerHTML = null;
+    display.innerHTML = null;{
+    arrB.push('.');
+    let ARaB = arrB.slice(0, 10);
+    let AArrB = ARaB.join("");
+    display.innerHTML = AArrB;
+    disableBtn();   
+    }}
 })
-uno.addEventListener('click', () =>{
-    arrB.push(1);
-    let ARaB = arrB.slice(0, 10);
-    let AArrB = ARaB.join("");
-    display.innerHTML = AArrB;
-   })
-dos.addEventListener('click', () =>{
-    arrB.push(2);
-    let ARaB = arrB.slice(0, 10);
-    let AArrB = ARaB.join("");
-    display.innerHTML = AArrB;
+function disableBtn(){
+    if (arrB.includes('.') === true) {
+    document.getElementById('punto').disabled = true;}
+    else if (arrB.includes('.') !== true) {
+    document.getElementById('punto').disabled = false;
+}}
+uno.addEventListener('click', () => {
+    if(funcion.innerHTML !== '='){
+        arrB.push(1);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();}
+        else if (funcion.innerHTML === '=' ){
+        arrA.length = 0;
+        arrB.length = 0;
+        arrC.length = 0;
+        arrF.length = 0;
+        funcion.innerHTML = null;
+        display.innerHTML = null;{
+        arrB.push(1);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();   
+        }}
     })
-tres.addEventListener('click', () =>{
-    arrB.push(3);
-    let ARaB = arrB.slice(0, 10);
-    let AArrB = ARaB.join("");
-    display.innerHTML = AArrB;
-   })
-cuatro.addEventListener('click', () =>{
-    arrB.push(4);
-    let ARaB = arrB.slice(0, 10);
-    let AArrB = ARaB.join("");
-    display.innerHTML = AArrB;
-   })
-cinco.addEventListener('click', () =>{
-    arrB.push(5);
-    let ARaB = arrB.slice(0, 10);
-    let AArrB = ARaB.join("");
-    display.innerHTML = AArrB;
-   })
-seis.addEventListener('click', () =>{
-    arrB.push(6);
-    let ARaB = arrB.slice(0, 10);
-    let AArrB = ARaB.join("");
-    display.innerHTML = AArrB;
-   })
-siete.addEventListener('click', () =>{
-    arrB.push(7);
-    let ARaB = arrB.slice(0, 10);
-    let AArrB = ARaB.join("");
-    display.innerHTML = AArrB;
+dos.addEventListener('click', () => {
+    if(funcion.innerHTML !== '='){
+        arrB.push(2);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();}
+        else if (funcion.innerHTML === '=' ){
+        arrA.length = 0;
+        arrB.length = 0;
+        arrC.length = 0;
+        arrF.length = 0;
+        funcion.innerHTML = null;
+        display.innerHTML = null;{
+        arrB.push(2);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();   
+        }}
+    })
+tres.addEventListener('click', () => {
+    if(funcion.innerHTML !== '='){
+        arrB.push(3);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();}
+        else if (funcion.innerHTML === '=' ){
+        arrA.length = 0;
+        arrB.length = 0;
+        arrC.length = 0;
+        arrF.length = 0;
+        funcion.innerHTML = null;
+        display.innerHTML = null;{
+        arrB.push(3);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();   
+        }}
+    })
+cuatro.addEventListener('click', () => {
+    if(funcion.innerHTML !== '='){
+        arrB.push(4);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();}
+        else if (funcion.innerHTML === '=' ){
+        arrA.length = 0;
+        arrB.length = 0;
+        arrC.length = 0;
+        arrF.length = 0;
+        funcion.innerHTML = null;
+        display.innerHTML = null;{
+        arrB.push(4);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();   
+        }}
+    })
+cinco.addEventListener('click', () => {
+    if(funcion.innerHTML !== '='){
+        arrB.push(5);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();}
+        else if (funcion.innerHTML === '=' ){
+        arrA.length = 0;
+        arrB.length = 0;
+        arrC.length = 0;
+        arrF.length = 0;
+        funcion.innerHTML = null;
+        display.innerHTML = null;{
+        arrB.push(5);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();   
+        }}
+    })
+seis.addEventListener('click', () => {
+    if(funcion.innerHTML !== '='){
+        arrB.push(6);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();}
+        else if (funcion.innerHTML === '=' ){
+        arrA.length = 0;
+        arrB.length = 0;
+        arrC.length = 0;
+        arrF.length = 0;
+        funcion.innerHTML = null;
+        display.innerHTML = null;{
+        arrB.push(6);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();   
+        }}
+    })
+siete.addEventListener('click', () => {
+    if(funcion.innerHTML !== '='){
+        arrB.push(7);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();}
+        else if (funcion.innerHTML === '=' ){
+        arrA.length = 0;
+        arrB.length = 0;
+        arrC.length = 0;
+        arrF.length = 0;
+        funcion.innerHTML = null;
+        display.innerHTML = null;{
+        arrB.push(7);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();   
+        }}
     })
 ocho.addEventListener('click', () =>{
-    arrB.push(8);
-    let ARaB = arrB.slice(0, 10);
-    let AArrB = ARaB.join("");
-    display.innerHTML = AArrB;
+    if(funcion.innerHTML !== '='){
+        arrB.push(8);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();}
+        else if (funcion.innerHTML === '=' ){
+        arrA.length = 0;
+        arrB.length = 0;
+        arrC.length = 0;
+        arrF.length = 0;
+        funcion.innerHTML = null;
+        display.innerHTML = null;{
+        arrB.push(8);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();   
+        }}
     })
 nueve.addEventListener('click', () =>{
-    arrB.push(9);
-    let ARaB = arrB.slice(0, 10);
-    let AArrB = ARaB.join("");
-    display.innerHTML = AArrB;
+    if(funcion.innerHTML !== '='){
+        arrB.push(9);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();}
+        else if (funcion.innerHTML === '=' ){
+        arrA.length = 0;
+        arrB.length = 0;
+        arrC.length = 0;
+        arrF.length = 0;
+        funcion.innerHTML = null;
+        display.innerHTML = null;{
+        arrB.push(9);
+        let ARaB = arrB.slice(0, 10);
+        let AArrB = ARaB.join("");
+        display.innerHTML = AArrB;
+        disableBtn();   
+        }}
     })
 
 clear.addEventListener('click', ()=>{
@@ -151,15 +326,18 @@ clear.addEventListener('click', ()=>{
     arrA.length = 0;
     arrB.length = 0;
     arrC.length = 0;
+    arrF.length = 0;
+    disableBtn();
 })
 
 lastValue.addEventListener('click', () => {
-    arrB.length = 0;
-    display.innerHTML = null;
-    arrF.length = 0;
+    arrB.pop();
+    display.innerHTML = arrB.join("");
+    disableBtn();
 })
 
 sumar.addEventListener('click', ()=>{
+    disableBtn();
     funcion.innerHTML = '+';
     if (arrC.length === 0) {
     arrF[0] = '+';
@@ -176,14 +354,19 @@ sumar.addEventListener('click', ()=>{
         arrB.length = 0;}
         display.innerHTML = arrC[0];
         funcion.innerHTML = '+';}}
-        else if (arrF[0] === '+')
+        else if (arrF[0] === '+'){
         operate(arrC, arrB); {
         arrB.length = 0;}
         display.innerHTML = arrC[0];
-        funcion.innerHTML = '+';}
-    })
+        funcion.innerHTML = '+';}}
+    else if (arrC.length !== 0 && arrB.length === 0){
+        arrF[0] = '+';
+        funcion.innerHTML = '+';
+    }
+    disableBtn();})
 
 restar.addEventListener('click', ()=>{
+    disableBtn();
     funcion.innerHTML = "-";
     if (arrC.length === 0) {
         arrF[0] = '-';
@@ -200,14 +383,19 @@ restar.addEventListener('click', ()=>{
                 arrB.length = 0;}
                 display.innerHTML = arrC[0];
                 funcion.innerHTML = '-';}}
-                else if (arrF[0] === '-')
+                else if (arrF[0] === '-'){
                 operate(arrC, arrB); {
                 arrB.length = 0;}
                 display.innerHTML = arrC[0];
-                funcion.innerHTML = '-';}
-        })
+                funcion.innerHTML = '-';}}
+        else if (arrC.length !== 0 && arrB.length === 0){
+        arrF[0] = '-';
+        funcion.innerHTML = '-';
+        }    
+        disableBtn();})
    
 multiplicar.addEventListener('click', ()=>{
+    disableBtn();
     funcion.innerHTML = "x";
     if (arrC.length === 0) {
         arrF[0] = 'x';
@@ -219,19 +407,24 @@ multiplicar.addEventListener('click', ()=>{
         }}
         else if (arrC.length !== 0 && arrB.length !== 0){
             if(arrF[0] !== 'x') {
-                {operate(arrC, arrB); {
+                operate(arrC, arrB); {
                 arrF[0] = 'x'
                 arrB.length = 0;}
                 display.innerHTML = arrC[0];
-                funcion.innerHTML = 'x';}}
-                else if (arrF[0] === 'x')
+                funcion.innerHTML = 'x';}
+                else if (arrF[0] === 'x'){
                 operate(arrC, arrB); {
                 arrB.length = 0;}
                 display.innerHTML = arrC[0];
-                funcion.innerHTML = 'x';}
-        })
+                funcion.innerHTML = 'x';}}
+        else if (arrC.length !== 0 && arrB.length === 0){
+        arrF[0] = 'x';          
+        funcion.innerHTML = 'x';            
+        }                      
+        disableBtn();})
    
 dividir.addEventListener('click', ()=>{
+    disableBtn();
     funcion.innerHTML = "÷" ;
     if (arrC.length === 0) {
         arrF[0] = '/';
@@ -249,15 +442,20 @@ dividir.addEventListener('click', ()=>{
                 display.innerHTML = arrC[0];
                 funcion.innerHTML = '÷';}}
                 else if (arrF[0] === '/')
-                operate(arrC, arrB); {
-                arrB.length = 0;}
+                {operate(arrC, arrB);{
+                arrB.length = 0;}}
                 display.innerHTML = arrC[0];
                 funcion.innerHTML = '÷';}
-        })
+        else if (arrC.length !== 0 && arrB.length === 0){
+        arrF[0] = '/';
+        funcion.innerHTML = '÷';
+        }                                              
+        disableBtn();})
    
 
 equivale.addEventListener('click', () => {
-        if (funcion.innerHTML = "+" && arrC.length !== 0 && arrB.length !== 0){
+        disableBtn();
+        if (funcion.innerHTML === "+" && arrC.length !== 0 && arrB.length !== 0){
             let firstChoice = arrC[0];
             let a = Number(firstChoice);
             let secondChoice = arrB.slice(0, 10);
@@ -267,7 +465,7 @@ equivale.addEventListener('click', () => {
                 arrC[0] = Number(add(a, b));}
             arrB.length = 0;
             arrF.length = 0;}
-        else if (funcion.innerHTML = "-" && arrC.length !== 0 && arrB.length !== 0){
+        else if (funcion.innerHTML === "-" && arrC.length !== 0 && arrB.length !== 0){
             let firstChoice = arrC[0];
             let a = Number(firstChoice);
             let secondChoice = arrB.slice(0, 10);
@@ -277,7 +475,7 @@ equivale.addEventListener('click', () => {
                 arrC[0] = Number(subtract(a, b));}
             arrB.length = 0;
             arrF.length = 0;}
-        else if (funcion.innerHTML = "x" && arrC.length !== 0 && arrB.length !== 0){
+        else if (funcion.innerHTML === "x" && arrC.length !== 0 && arrB.length !== 0){
             let firstChoice = arrC[0];
             let a = Number(firstChoice);
             let secondChoice = arrB.slice(0, 10);
@@ -287,7 +485,7 @@ equivale.addEventListener('click', () => {
                 arrC[0] = Number(multiply(a, b));}
             arrB.length = 0;
             arrF.length = 0;}
-        else if (funcion.innerHTML = "÷" && arrC.length !== 0 && arrB.length !== 0){
+        else if (funcion.innerHTML === "÷" && arrC.length !== 0 && arrB.length !== 0){
             let firstChoice = arrC[0];
             let a = Number(firstChoice);
             let secondChoice = arrB.slice(0, 10);
@@ -297,5 +495,5 @@ equivale.addEventListener('click', () => {
                 arrC[0] = Number(divide(a, b));}
             arrB.length = 0;
             arrF.length = 0;}
-        }
+        }disableBtn();
     })
